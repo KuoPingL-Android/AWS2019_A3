@@ -1,0 +1,113 @@
+  Q1.
+  What is Encapsulation ? Try to list out the benefits of Encapsulation
+    A1.
+    Encapsulation refers the restriction of direct access to fields or
+    components outside of the class by wrapping the data and functions
+    within an unit.
+
+    BENEFITS :
+    1. Data Hiding
+        - You can choose to hide data from other classes.
+    2. Flexibility
+        - Encapsulation allows you to make flexible decision on
+          how the data should be presented to outer classes, such as
+          read-only, write-only or read-write
+    3. Testing of Code
+        - This is better for Unit Test
+    4. Less Likely to Cause Bug
+        - By hiding sensitive data or fields from outer class,
+          bugs that might introduced by changing these values
+          will be eliminated.
+
+  Q2.
+  Try to explain what is enum and why we use them.
+    A2.
+    Enum is a class that contains enum objects.
+    These objects can be constant, instances, classes or constructor.
+
+    It is usually used as holder that contains a collection of
+    enum objects that have related property or operations.
+
+    Also, it has several important properties :
+    1. It is type-safe:
+        meaning the when assigning, you are limited to the values
+        defined in the enum.
+    2. It can be compared using :
+        switch-case, == operation, .equals() methods
+    3. Enum constants are implicitly static and final.
+    4. An enum does not support inheritance.
+
+    We use enum because it helps us organize our code, reduce error
+    and increase complie time checking.
+
+
+  Q3.
+  How to use enum in Kotlin? Attach a sample code that use enum in Kotlin.
+    A3.
+    In order to use enum in Kotlin, first you need to declare an enum class.
+    Then, depending on the values inside, including constant, instances,
+    classes or constructors, each has different ways to declare.
+
+    CONSTANT :
+    ----------
+        enum class Directions {
+          NORTH, SOUTH, EAST, WEST
+        }
+
+    INSTANCES :
+    -----------
+        enum class BuzzType(val pattern: LongArray) {
+          CORRECT(CORRECT_BUZZ_PATTERN),
+          GAME_OVER(GAME_OVER_BUZZ_PATTERN),
+          COUNTDOWN_PANIC(PANIC_BUZZ_PATTERN),
+          NO_BUZZ(NO_BUZZ_PATTERN)
+        }
+
+        The instances within BuzzType are used to save the values of pattern.
+        To use this class, simply call BuzzType.CORRECT.pattern to retrive the
+        pattern for certain state.
+
+   CLASSES :
+   ---------
+       enum class ProtocolState {
+            WAITING {override fun signal() = TALKING},
+            TALKING {override fun signal() = WAITING};
+            abstract fun signal(): ProtocolState
+        }
+
+        The classes within ProtocolState are anonymous classes.
+        This enum is used by calling ProtocolState.WAITING.signal()
+        to starts the action.
+
+
+  Q4.
+  What are the differences between LinearLayout and RelativeLayout ?
+  Try to explain in details.
+    A4.
+    The main differences between the two are that :
+        - LinearLayout has directional constraint, while
+          RelativeLayout does not. Its views can only align
+          either Vertically or Horizontally.
+        - RelativeLayout has greater flexiblity because the vies can
+          align in any directions, relative to other views,
+          including the parent view.
+        - RelativeLayout is suited for more complex UI
+
+  Q5.
+  Try to explain the benefits of ConstraintLayout . Why you should use it?
+    A5.
+    ConstraintLayout allows us to build complex UI structure, due to
+    FLAT VIEW Hierarchy.
+    Flat view hierarchy reduces the time for the layout stage to complete,
+    making it more responsive than layouts that use nested view groups,
+    such as RelativeLayout and LinearLayout.
+
+    You should use ConstraintLayout because it has more flexible
+    and a more responsive UI, due to flat view hierarchy.
+
+
+
+
+
+
+  ||
