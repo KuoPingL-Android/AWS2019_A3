@@ -126,5 +126,17 @@
             app:layout_constraintTop_toTopOf="@+id/quality_four_image"
             app:srcCompat="@drawable/ic_sleep_5" />
 
+        <EditText
+            android:id="@+id/sleepInfoText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/sleep_info_hint"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/quality_five_image"
+            app:layout_constraintStart_toStartOf="@+id/quality_three_image"
+            app:layout_constraintTop_toBottomOf="@+id/quality_four_image" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
