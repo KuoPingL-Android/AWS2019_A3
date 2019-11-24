@@ -17,6 +17,7 @@
 package com.example.android.trackmysleepquality.sleepquality
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -69,8 +70,11 @@ class SleepQualityFragment : Fragment() {
         // Add an Observer to the state variable for Navigating when a Quality icon is tapped.
         sleepQualityViewModel.navigateToSleepTracker.observe(this, Observer {
             if (it == true) { // Observed state is true.
+                sleepQualityViewModel.setSleepInfo(binding.sleepInfoText.text.toString())
                 this.findNavController().navigate(
                         SleepQualityFragmentDirections.actionSleepQualityFragmentToSleepTrackerFragment())
+                Log.i("Sleep Quality Fragment", "${binding.sleepInfoText.text.toString()}")
+
                 // Reset state to make sure we only navigate once, even if the device
                 // has a configuration change.
                 sleepQualityViewModel.doneNavigating()

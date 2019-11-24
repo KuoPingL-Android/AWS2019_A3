@@ -61,6 +61,14 @@ fun convertLongToDateString(systemTime: Long): String {
             .format(systemTime).toString()
 }
 
+fun convertProperSleepInfo(info: String): String {
+    var sleepInfo = info
+    if (info.isEmpty()) {
+        sleepInfo = "--"
+    }
+    return  sleepInfo
+}
+
 /**
  * Takes a list of SleepNights and converts and formats it into one string for display.
  *
@@ -88,6 +96,8 @@ fun formatNights(nights: List<SleepNight>, resources: Resources): Spanned {
                 append("\t${convertLongToDateString(it.endTimeMilli)}<br>")
                 append(resources.getString(R.string.quality))
                 append("\t${convertNumericQualityToString(it.sleepQuality, resources)}<br>")
+                append("<b>Information:</b>")
+                append("\t${convertProperSleepInfo(it.sleepInfo)}<br>")
                 append(resources.getString(R.string.hours_slept))
                 // Hours
                 append("\t ${it.endTimeMilli.minus(it.startTimeMilli) / 1000 / 60 / 60}:")
