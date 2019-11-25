@@ -16,6 +16,7 @@
 
 package com.example.android.trackmysleepquality.sleepquality
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -70,13 +71,19 @@ class SleepQualityViewModel(
      *
      * onCleared() gets called when the ViewModel is destroyed.
      */
+    @SuppressLint("LongLogTag")
     override fun onCleared() {
         super.onCleared()
         Log.i("Sleep Quality View Model", "OnClear")
         viewModelJob.cancel()
     }
 
+    val sleepInfo = MutableLiveData<String>()
+//    val sleepInfo: LiveData<String>
+//        get() = _sleepInfo
+
     fun setSleepInfo(info: String) {
+        Log.i("Sleep Quality VM", info)
         uiScope.launch {
             withContext(Dispatchers.IO) {
                 val tonight = database.get(sleepNightKey) ?: return@withContext

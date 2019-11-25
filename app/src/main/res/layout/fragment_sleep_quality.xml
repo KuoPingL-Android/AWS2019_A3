@@ -132,6 +132,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/sleep_info_hint"
+            android:text="@={sleepQualityViewModel.sleepInfo}"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/quality_five_image"
